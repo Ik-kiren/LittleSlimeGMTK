@@ -122,8 +122,8 @@ checkThreePoints = function() {
 idleState = function(){
 	if(pointToGo.getNewPoint){
 		do {
-			pointToGo.x1 = irandom_range(x - 500, x + 500);
-			pointToGo.y1 = irandom_range(y - 500, y + 500);
+			pointToGo.x1 = irandom_range(x - 150, x + 150);
+			pointToGo.y1 = irandom_range(y - 150, y + 150);
 		} until ((pointToGo.x1 > 5  && pointToGo.x1 < room_width - 5) && (pointToGo.y1 > 5 && pointToGo.y1 < room_height - 5) && !place_meeting(pointToGo.x1, pointToGo.y1, obj_tree));
 		startNode = new Node(round(x), round(y));
 		targetNode = new Node(pointToGo.x1, pointToGo.y1);
@@ -273,7 +273,7 @@ aStar = function(){
 		}
 		array_push(closeArray, currentNode);
 		array_delete(openArray, findIndex(openArray, currentNode), 1);
-		if (currentNode.point.x1 == targetNode.point.x1 && currentNode.point.y1 == targetNode.point.y1){
+		if ((currentNode.point.x1 > targetNode.point.x1 - 2 && currentNode.point.x1 < targetNode.point.x1 + 2) && (currentNode.point.y1 > targetNode.point.y1 - 2 && currentNode.point.y1 < targetNode.point.y1 + 2)){
 			var _currentNodePath = currentNode;
 			var _path = [];
 			while (_currentNodePath.point.x1 != startNode.point.x1 || _currentNodePath.point.y1 != startNode.point.y1){
