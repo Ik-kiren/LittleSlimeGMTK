@@ -6,4 +6,4 @@ foodTimer += delta_time / 100000;
 enemiesTimer += delta_time / 100000;
 enemyCount = instance_number(obj_enemy);
 foodCount = instance_number(obj_food);
-spawnEntities();
+//spawnEntities();

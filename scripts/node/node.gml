@@ -8,6 +8,6 @@ function Node(_x, _y) constructor{
 	connection = 0;
 	
 	f = function(){
-		return (g + h);
+		return (g + 100 * h);
 	}
 }
