@@ -12,7 +12,16 @@ if (currentState == STATE.CHASING){
 	moveSpeed = 1;
 }
 
+if (array_length(currentPath) > 0){
+	pointToGo.x1 = currentPath[array_length(currentPath) - 1].point.x1;
+	pointToGo.y1 = currentPath[array_length(currentPath) - 1].point.y1;
+	array_pop(currentPath);
+}
+if (array_length(currentPath) == 0)
+	pointToGo.getNewPoint = true;
+
 moveToPoint(pointToGo.x1, pointToGo.y1);
+//move_towards_point(pointToGo.x1, pointToGo.y1, moveSpeed);
 
 if (x < 0 || x > room_width || y < 0 || y > room_height)
 	show_debug_message(id);
@@ -75,6 +84,6 @@ if (checkPointTimer >= 10){
 	checkPointTimer = 0;
 }
 
-if (pointToGo.x1 < 0 || pointToGo.y1 < 0 || pointToGo.x1 > room_width || pointToGo.y1 > room_height) {
+/*if (pointToGo.x1 < 0 || pointToGo.y1 < 0 || pointToGo.x1 > room_width || pointToGo.y1 > room_height) {
 	pointToGo.getNewPoint = true;
-}
+}*/
